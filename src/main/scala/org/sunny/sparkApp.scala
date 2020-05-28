@@ -89,6 +89,7 @@ object sparkApp{
 
     val res3 = res2.sortBy(x=>x._1,false) //或者直接使用
     res3.foreach(println)
+    println("--------------")
     val res4 = res2.sortByKey()
     res4.foreach(println)
 
