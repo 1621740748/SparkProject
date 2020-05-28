@@ -12,7 +12,7 @@ object wordCount{
     val conf = new SparkConf().setAppName("mengapp")
       .setMaster("local[2]")
     val sc = new SparkContext(conf)
-    val words = sc.textFile("hdfs://localhost:8020/words")
+    val words = sc.textFile("hdfs://master:8020/words")
     val wordsFlatMap = words.flatMap(_.split("\\W+"))
     val wordsMap = wordsFlatMap.map( w => (w,1))
     val wordCount = wordsMap.reduceByKey( (a,b) => (a+b))
